@@ -4,13 +4,13 @@ import API from "../api/Api"
 
 
 export function Table() {
+    let employees;
 
-
-    API.getEmployees()
-    .then(res => console.log(res))
+    API.getEmployees().then(res => {
+        employees = res.results
+    })
+    console.log(employees)
     
-
-
     return (
         <div className="container">
             <table className="table mt-4">
@@ -23,7 +23,14 @@ export function Table() {
                         <th scope="col">Location</th>
                     </tr>
                 </thead>
-                <TableRows/>
+               
+                <TableRows
+                // image={employees[0].picture.thumbnail}
+                // name={employees[0].name.first}
+                // phone={employees[0].phone}
+                // email={employees[0].email}
+                // location={employees[0].location.postcode}
+                />
             </table>
         </div>
     );
