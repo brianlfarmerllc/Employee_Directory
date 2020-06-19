@@ -11,3 +11,27 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.header {
+  height:8em;
+  background-color: #ff2c56;  
+  width:100%;
+}
+
+.header h1, .header p {
+  color:white;
+  text-align: center;
+  font-weight: 700;
+}
+
+.input {
+  background-color: #2c80ff;
+  height:5em
+}
+
+.input input {
+  height:3em
+}
+
+.table th, .table td {
+  text-align:center;
+}
