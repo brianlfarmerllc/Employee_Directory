@@ -13,7 +13,7 @@ function Input(props) {
                             className="form-control"
                             type="text"
                             placeholder="Search Directory" />
-                        <button
+                        {/* <button
                             onClick={props.handleSubmit}
                             style={{
                                 backgroundColor: "#ff2c56",
@@ -21,7 +21,7 @@ function Input(props) {
                             }}
                             className="btn btn-dark ml-5"
                             type="submit">Submit
-                        </button>
+                        </button> */}
                     </form>
                 </div>
             </div>

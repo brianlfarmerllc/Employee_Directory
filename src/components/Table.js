@@ -3,8 +3,10 @@ import React from 'react';
 function Table(props) {
     let search = props.search
     let results = props.results
-    let filteredBy = results.filter(employee => employee.name.first === search)
-    console.log(filteredBy)
+    let filteredBy = results.filter(employee => {
+        employee.fullname = `${employee.name.first} ${employee.name.last}`
+        return JSON.stringify(employee).includes(search)})
+    
 
     return (
         <div className="container">
@@ -19,8 +21,8 @@ function Table(props) {
                     </tr>
                 </thead>
                 <tbody>
-                    {props.results.map(result => (
-                        <tr>
+                    {filteredBy.map(result => (
+                        <tr key={result.id.value}>
                             <td><img alt={result.name} className="img-fluid" src={result.picture.thumbnail} /></td>
                             <td>{result.name.first + " " + result.name.last}</td>
                             <td>{result.phone}</td>

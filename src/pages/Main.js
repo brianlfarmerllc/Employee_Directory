@@ -46,7 +46,7 @@ class Main extends Component {
                 <Header />
                 <Input
                 search={this.state.search}
-                handleSubmit={this.handleSubmit} 
+                // handleSubmit={this.handleSubmit} 
                 handleChange={this.handleChange}
                 />
                 <Table 
