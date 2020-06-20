@@ -1,42 +1,37 @@
-import React, { Component } from 'react';
-import { TableRows } from './TableRows';
-import API from "../api/Api"
+import React from 'react';
 
+function Table(props) {
+    let search = props.search
+    let results = props.results
+    let filteredBy = results.filter(employee => employee.name.first === search)
+    console.log(filteredBy)
 
-class Table extends Component {
-    state = {
-        result: [],
-    };
-
-    componentDidMount() {
-        this.searchEmployees();
-    }
-
-    searchEmployees = () => {
-        API.getEmployees()
-            .then(res => this.setState({ result: res.results }))
-            .catch(err => console.log(err));
-    };
-    
-
-    render() {
-        return (
-            <div className="container">
-                <table className="table mt-4">
-                    <thead>
+    return (
+        <div className="container">
+            <table className="table mt-4">
+                <thead>
+                    <tr>
+                        <th scope="col">Image</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.results.map(result => (
                         <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Phone</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Location</th>
+                            <td><img alt={result.name} className="img-fluid" src={result.picture.thumbnail} /></td>
+                            <td>{result.name.first + " " + result.name.last}</td>
+                            <td>{result.phone}</td>
+                            <td>{result.email}</td>
+                            <td>{result.location.city + ", " + result.location.state}</td>
                         </tr>
-                    </thead>
-                    <TableRows results={this.state.result}/>
-                </table>
-            </div>
-        );
-    }
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    );
 }
 
 export default Table;

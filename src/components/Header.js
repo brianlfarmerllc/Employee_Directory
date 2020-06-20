@@ -1,5 +1,5 @@
 import React from 'react';
-export function Header() {
+function Header() {
     return (
         <header className="container-fluid header">
             <div className="row">
@@ -11,3 +11,5 @@ export function Header() {
         </header>
     );
 }
+
+export default Header
