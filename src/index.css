@@ -35,3 +35,21 @@ code {
 .table th, .table td {
   text-align:center;
 }
+
+i {
+  border: solid #ff2c56;
+  border-width: 0 3px 3px 0;
+  display: none;
+  padding: 3px;
+  margin-left: 1em;
+  /* display: none; */
+}
+
+.name:hover i {
+  display: inline-block;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

@@ -5,6 +5,7 @@ function Table(props) {
     let results = props.results
     let filteredBy = results.filter(employee => {
         employee.fullname = `${employee.name.first} ${employee.name.last}`
+        employee.citystate = `${employee.location.city}, ${employee.location.state}`
         return JSON.stringify(employee).includes(search)})
     
 
@@ -14,7 +15,7 @@ function Table(props) {
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th scope="col">Name</th>
+                        <th className="name" scope="col">Name<i className="arrow down"></i></th>
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Location</th>
