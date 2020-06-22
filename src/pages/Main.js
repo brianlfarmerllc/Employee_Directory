@@ -9,7 +9,8 @@ class Main extends Component {
     state = {
         result: [],
         search: "",
-        sort: "",
+        sortName: "",
+        sortLocation: "",
     };
 
     componentDidMount() {
@@ -30,27 +31,45 @@ class Main extends Component {
         });
     }
     
-    handleSort = event => {
+    handleSortName = event => {
         event.preventDefault();
-        if (this.state.sort === "") {
+        if (this.state.sortName === "") {
             const currentResult = this.state.result
             let sortedResult = currentResult.sort((a, z) => { 
                 return a.name.first.localeCompare(z.name.first, undefined, { caseFirst: "upper" })
             });
             this.setState({ result: sortedResult })
-            this.setState({sort:"az"})
-        } else if (this.state.sort === "az"){
+            this.setState({sortName:"az"})
+        } else if (this.state.sortName === "az"){
             const currentResult = this.state.result
             let sortedResult = currentResult.sort((a, z) => { 
                 return z.name.first.localeCompare(a.name.first, undefined, { caseFirst: "upper" })
             });
             this.setState({ result: sortedResult })
-            this.setState({sort:""})
+            this.setState({sortName:""})
+        }
+    }
+
+    handleSortLocation = event => {
+        event.preventDefault();
+        if (this.state.sortLocation === "") {
+            const currentResult = this.state.result
+            let sortedResult = currentResult.sort((a, z) => { 
+                return a.location.state.localeCompare(z.location.state, undefined, { caseFirst: "upper" })
+            });
+            this.setState({ result: sortedResult })
+            this.setState({sortLocation:"az"})
+        } else if (this.state.sortLocation === "az"){
+            const currentResult = this.state.result
+            let sortedResult = currentResult.sort((a, z) => { 
+                return z.location.state.localeCompare(a.location.state, undefined, { caseFirst: "upper" })
+            });
+            this.setState({ result: sortedResult })
+            this.setState({sortLocation:""})
         }
     }
 
     render() {
-
         return (
             <>
                 <Header />
@@ -59,7 +78,8 @@ class Main extends Component {
                 handleChange={this.handleChange}
                 />
                 <Table
-                sortName={this.handleSort}
+                sortName={this.handleSortName}
+                sortLocation={this.handleSortLocation}
                 results={this.state.result} 
                 search={this.state.search}
                 />

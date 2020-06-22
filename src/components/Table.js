@@ -26,20 +26,13 @@ function Table(props) {
                         className="arrow down"></i>
                         </th>
                         <th scope="col">Location
-                        <i onClick={props.sortName} 
+                        <i onClick={props.sortLocation} 
                         className="arrow down"></i>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {filteredBy.map(result => (
-                        // <tr key={result.id.value}>
-                        //     <td><img alt={result.name} className="img-fluid" src={result.picture.thumbnail} /></td>
-                        //     <td>{result.name.first + " " + result.name.last}</td>
-                        //     <td>{result.phone}</td>
-                        //     <td>{result.email}</td>
-                        //     <td>{result.location.city + ", " + result.location.state}</td>
-                        // </tr>
                         <Trowe
                         key={result.id.value}
                         name={result.name.first + " " + result.name.last}

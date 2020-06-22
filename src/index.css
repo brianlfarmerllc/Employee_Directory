@@ -53,8 +53,16 @@ code {
 .table thead:hover i {
   display: inline-block;
 }
+.table i:hover {
+  border-width: 0 6px 6px 0;
+}
 
 .table .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
+}
+
+.table .up {
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
 }
