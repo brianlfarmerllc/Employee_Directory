@@ -30,6 +30,7 @@ code {
 
 .input input {
   height:3em
+  
 }
 
 .table button {
@@ -49,7 +50,7 @@ code {
   margin-left: 1em;
 }
 
-.table .name:hover i {
+.table thead:hover i {
   display: inline-block;
 }
 

@@ -34,15 +34,15 @@ class Main extends Component {
         event.preventDefault();
         if (this.state.sort === "") {
             const currentResult = this.state.result
-            let sortedResult = currentResult.sort((a, b) => { 
-                return a.name.first.localeCompare(b.name.first, undefined, { caseFirst: "upper" })
+            let sortedResult = currentResult.sort((a, z) => { 
+                return a.name.first.localeCompare(z.name.first, undefined, { caseFirst: "upper" })
             });
             this.setState({ result: sortedResult })
             this.setState({sort:"az"})
         } else if (this.state.sort === "az"){
             const currentResult = this.state.result
-            let sortedResult = currentResult.sort((a, b) => { 
-                return b.name.first.localeCompare(a.name.first, undefined, { caseFirst: "upper" })
+            let sortedResult = currentResult.sort((a, z) => { 
+                return z.name.first.localeCompare(a.name.first, undefined, { caseFirst: "upper" })
             });
             this.setState({ result: sortedResult })
             this.setState({sort:""})

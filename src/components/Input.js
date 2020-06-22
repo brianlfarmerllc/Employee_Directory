@@ -4,8 +4,8 @@ function Input(props) {
     return (
         <div className="container-fluid input">
             <div className="row justify-content-center">
-                <div className="col mt-3">
-                    <form className="form-inline">
+                <form className="form-inline">
+                    <div className="col-12 mt-3">
                         <input
                             onChange={props.handleChange}
                             value={props.search}
@@ -13,8 +13,8 @@ function Input(props) {
                             className="form-control"
                             type="text"
                             placeholder="Search Directory" />
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </div>
     );
