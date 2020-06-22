@@ -1,6 +1,6 @@
 {
   "name": "employee_directory",
-  "homepage": "https://brianlfarmerllc.github.io/Employee_Directory/",
+  "homepage": "http://brianlfarmerllc.github.io/Employee_Directory/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
