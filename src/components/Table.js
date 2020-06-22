@@ -15,7 +15,12 @@ function Table(props) {
                 <thead>
                     <tr>
                         <th scope="col">Image</th>
-                        <th className="name" scope="col">Name<i className="arrow down"></i></th>
+                        <th 
+                        className="name" 
+                        scope="col">Name
+                        <i onClick={props.sortName} 
+                        className="arrow down"></i>
+                        </th>
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Location</th>

@@ -32,24 +32,28 @@ code {
   height:3em
 }
 
+.table button {
+  border: none;
+  background-color: white;
+}
+
 .table th, .table td {
   text-align:center;
 }
 
-i {
+.table i {
   border: solid #ff2c56;
   border-width: 0 3px 3px 0;
   display: none;
   padding: 3px;
   margin-left: 1em;
-  /* display: none; */
 }
 
-.name:hover i {
+.table .name:hover i {
   display: inline-block;
 }
 
-.down {
+.table .down {
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
 }

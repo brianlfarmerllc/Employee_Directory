@@ -8,7 +8,8 @@ import API from "../api/Api"
 class Main extends Component {
     state = {
         result: [],
-        search: ""
+        search: "",
+        sort: "",
     };
 
     componentDidMount() {
@@ -29,15 +30,24 @@ class Main extends Component {
         });
     }
     
-    // handleSubmit = event => {
-    //     event.preventDefault();
-    //     const employees = this.state.result
-    //     const search = this.state.search
-    //     console.log(employees)
-    //     console.log(search)
-    //     const filtered = employees.filter(employee => employee.name === search)
-    //     console.log(filtered)
-    // }
+    handleSort = event => {
+        event.preventDefault();
+        if (this.state.sort === "") {
+            const currentResult = this.state.result
+            let sortedResult = currentResult.sort((a, b) => { 
+                return a.name.first.localeCompare(b.name.first, undefined, { caseFirst: "upper" })
+            });
+            this.setState({ result: sortedResult })
+            this.setState({sort:"az"})
+        } else if (this.state.sort === "az"){
+            const currentResult = this.state.result
+            let sortedResult = currentResult.sort((a, b) => { 
+                return b.name.first.localeCompare(a.name.first, undefined, { caseFirst: "upper" })
+            });
+            this.setState({ result: sortedResult })
+            this.setState({sort:""})
+        }
+    }
 
     render() {
 
@@ -46,10 +56,10 @@ class Main extends Component {
                 <Header />
                 <Input
                 search={this.state.search}
-                // handleSubmit={this.handleSubmit} 
                 handleChange={this.handleChange}
                 />
-                <Table 
+                <Table
+                sortName={this.handleSort}
                 results={this.state.result} 
                 search={this.state.search}
                 />
