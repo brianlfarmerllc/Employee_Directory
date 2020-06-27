@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from '../components/Header';
 import Input from '../components/Input';
 import Table from '../components/Table';
+import results from '../db/employee.json';
 import API from "../api/Api"
 
 
@@ -18,9 +19,7 @@ class Main extends Component {
     }
 
     searchEmployees = () => {
-        API.getEmployees()
-            .then(res => this.setState({ result: res.results }))
-            .catch(err => console.log(err));
+    this.setState({ result: results[0].results })
     };
 
     handleChange = e => {
